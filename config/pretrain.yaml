@@ -1,0 +1,31 @@
+batch_size: 200                         # batch size 200
+batch_size_ssl: 128                     # 128
+epochs: 100                             # total number of epochs
+device: cuda                            # training device
+output_dir: ./checkpoint                # model checkpoint output path
+start_epoch: 0                          # start epoch, only used when checkpoint is provided
+method: 'ProtoMolCL-P'                     # method name, used for saving checkpoint
+
+model:
+  backbone: gps                         # which backbone to use [gin, gps]
+  num_layer_low: 2                      # number of graph conv layers
+  num_layer_mid: 4                      # number of graph conv layers
+  num_layer_high: 5                     # number of graph conv layers
+  emb_dim: 300                          # embedding dimension in graph conv layers
+  heads: 6                              # number of attention head of graph transformer
+  dropout_ratio: 0                      # dropout ratio
+  checkpoint:                           # checkpoint for continuous training
+
+optim:
+  lr: 0.0001                            # learning rate
+  decay: 1e-6                           # weight decay
+  margin: 0.8                           # offset margin value
+  distance_metric: l2norm               # distance metric [l2norm, cossim]
+  num_candidates: 6                     # number of positive candidates for contrastive learning
+  accum_iter: 1                         # gradient accumulation steps
+  reg_coeff: 0.1                        # coefficient for regularization loss
+
+dataset:
+  data_dir: ./ProtoMolCL-main/processed_dataset             # data directory
+  num_workers: 32                       # dataloader number of workers
+  feat_type: super_rich                 # whether use basic/rich feature
