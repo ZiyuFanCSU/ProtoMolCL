@@ -1,3 +1,7 @@
+## To KDD reviewers：
+
+Additional case studies and interpretation analyses accompanying our KDD rebuttal are available in the /main/case_study.
+
 # ProtoMolCL
 
 ProtoMolCL is a prototype-guided molecular representation learning framework designed to capture molecular semantics at multiple structural granularities. The project provides a complete pipeline for molecular data preprocessing, multi-level prototype construction, CReM-based molecular perturbation, self-supervised pretraining, and downstream evaluation on MoleculeNet and MoleculeACE benchmarks.
